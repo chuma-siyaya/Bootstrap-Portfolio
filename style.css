@@ -21,14 +21,19 @@ body {
   box-shadow: inset 0 0 5rem rgba(0, 0, 0, .5);
 }
 
-.cover-container {
-  max-width: 42em;
+
+/** Header*/
+
+.hero{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    background: url(Images/portbanner.png) no-repeat center center;
+    background-size: cover;
+    height: 100%;
+    padding: 25px 25px 32px 32px;
 }
-
-
-/*
- * Header
- */
 
 .nav-masthead .nav-link {
   color: rgba(255, 255, 255, .5);
@@ -45,6 +50,34 @@ body {
 }
 
 .nav-masthead .active {
-  color: #fff;
-  border-bottom-color: #fff;
+  color: #c9d1d9;
+  border-bottom-color: #c9d1d9;
+}
+
+.about-section{
+  background: #1d2124;
+}
+
+.about.card{
+  border-radius: 14px;
+}
+
+.profile-img{
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+}
+
+about-label{
+  background:#e7f0ff;
+  color:#0a192f;
+  font-weight:600;
+  padding:6px 14px;
+  border-radius:6px;
+  font-size:150px;
+}
+
+.skills .badge{
+  margin:4px;
+  font-size:0.8rem;
 }
