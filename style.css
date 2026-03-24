@@ -9,6 +9,23 @@
 .btn-light:focus {
   color: #333;
   text-shadow: none; /* Prevent inheritance from `body` */
+  ;
+}
+
+
+/* Auto theme mode using CSS media queries */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bs-body-color: var(--bs-light);
+    --bs-body-bg: var(--bs-dark);
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bs-body-color: var(--bs-dark);
+    --bs-body-bg: var(--bs-light);
+  }
 }
 
 
@@ -21,25 +38,7 @@ body {
   box-shadow: inset 0 0 5rem rgba(0, 0, 0, .5);
 }
 
-
-/** Header*/
-
-.hero{
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    flex-direction: column;
-    background: url(Images/portbanner.png) no-repeat center center;
-    background-size: cover;
-    height: 100%;
-    padding: 25px 25px 32px 32px;
-}
-
-.nav-masthead .nav-link {
-  color: rgba(255, 255, 255, .5);
-  border-bottom: .25rem solid transparent;
-}
-
+/* Navigation */
 .nav-masthead .nav-link:hover,
 .nav-masthead .nav-link:focus {
   border-bottom-color: rgba(255, 255, 255, .25);
@@ -54,13 +53,35 @@ body {
   border-bottom-color: #c9d1d9;
 }
 
+/* Hero section */
+
+.hero {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  background: url(Images/banner.jpg) no-repeat center center;
+  background-size: cover;
+  min-height: 92vh;
+  padding: 105px 25px 32px 32px;
+}
+
+/* About section */
 .about-section{
   background: #1d2124;
 }
 
-.about.card{
+.card.about-card,
+.about-card {
   border-radius: 14px;
 }
+
+.profile-img{
+  color: rgba(255, 255, 255, .5);
+  border-bottom: .25rem solid transparent;
+}
+
+
 
 .profile-img{
   width: 140px;
@@ -68,16 +89,76 @@ body {
   object-fit: cover;
 }
 
-about-label{
-  background:#e7f0ff;
-  color:#0a192f;
-  font-weight:600;
-  padding:6px 14px;
-  border-radius:6px;
-  font-size:150px;
-}
-
 .skills .badge{
   margin:4px;
   font-size:0.8rem;
+}
+
+/* Project card images */
+.project-img{
+  height: 200px;
+  width: 200px;
+  object-fit: cover;
+}
+
+.project-card{
+  border-radius: 12px;
+  transition: transform 0.2s;
+}
+
+.project-card:hover{
+  transform: translateY(-6px);
+}
+
+/* social media icons */
+.social-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  
+  background-color: #0a192f;
+  color: #fff;
+  font-size: 1.3rem;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.social-icon:hover {
+  background-color: #1f6feb;
+  color: #fff;
+}
+
+
+/* Print the page */
+@media print {
+
+  /* Hide everything except the About section */
+  #mainNav,
+  #hero,
+  #projects,
+  #contact,
+  footer {
+    display: none !important;
+  }
+
+  /* Remove background colour for clean printing */
+  body {
+    background: white !important;
+    color: black !important;
+  }
+
+  /* Remove the card shadow when printing */
+  .card {
+    box-shadow: none !important;
+    border: 1px solid #ccc !important;
+  }
+
+  /* Page size = A4, with margins */
+  @page {
+    size: A4;
+    margin: 2cm;
+  }
 }
